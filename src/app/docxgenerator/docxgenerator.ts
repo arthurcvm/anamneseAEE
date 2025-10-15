@@ -18,6 +18,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDivider } from '@angular/material/divider';
 
 function loadFile(url: string, callback: any) {
   PizZipUtils.getBinaryContent(url, callback);
@@ -37,7 +38,8 @@ function loadFile(url: string, callback: any) {
     MatDatepickerModule,
     MatTabsModule,
     MatCardModule,
-    MatGridListModule],
+    MatGridListModule,
+    MatDivider],
     providers: [provideNativeDateAdapter()],
     changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './docxgenerator.html',

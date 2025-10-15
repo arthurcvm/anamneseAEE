@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <h1>Test docxtemplater</h1>
+    <h1>Anamnese AEE</h1>
 
     <form [formGroup]="options">
         <mat-tab-group>
@@ -141,17 +141,600 @@
                 </mat-card>    
             </mat-tab>
             <mat-tab label="2 - INFORMAÇÕES MÉDICAS"> 
-                <mat-checkbox [formControl]="hideRequiredControl">Hide required marker</mat-checkbox>
-                            <div>
-                            <label>Float label: </label>
-                            <mat-radio-group>
-                                <mat-radio-button value="auto">Auto</mat-radio-button>
-                                <mat-radio-button value="always">Always</mat-radio-button>
-                            </mat-radio-group>
+                <mat-card>
+                    <div class="container mt-2">                    
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Diagnóstico clínico</mat-checkbox>
                             </div>
+                            <div class="col-3">
+                                <mat-checkbox>Relatório pedagógico</mat-checkbox>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Diagnóstico</mat-label>
+                                    <input matInput placeholder="CID..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">                        
+                                <mat-form-field>
+                                    <mat-label>Atendimentos clínicos externos</mat-label>
+                                    <input matInput placeholder="Fono... TO..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Tem convulsões?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Faz uso de medicação?</mat-checkbox>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Qual medicação?</mat-label>
+                                    <input matInput placeholder="Rispe..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Tem convênio médico?</mat-checkbox>
+                            </div>
+                            <div class="col-9">
+                                <mat-form-field>
+                                    <mat-label>Qual convênio?</mat-label>
+                                    <input matInput placeholder="Unimed..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Tem carteirinha de transporte?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Vai regularmente ao médico?</mat-checkbox>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Vacinação em dias?</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Cartão do SUS</mat-label>
+                                    <input matInput placeholder="7..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Teve alguma doença contagiosa?</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Qual doença?</mat-label>
+                                    <input matInput placeholder="COVID..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <mat-form-field>
+                                <mat-label>Apresenta alguma necessidade?</mat-label>
+                                <mat-select multiple>
+                                    <mat-option value="1">Auditiva</mat-option>
+                                    <mat-option value="2">Comunicação</mat-option>
+                                    <mat-option value="3">Visual</mat-option>
+                                    <mat-option value="4">Locomoção</mat-option>
+                                    <mat-option value="5">Cognitivo</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Serviços que frequenta ou frequentou</mat-label>
+                                    <input matInput placeholder="Fisio..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Profissionais de referência</mat-label>
+                                    <input matInput placeholder="Cícero Fono..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>   
             </mat-tab>
-            <mat-tab label="3 - ANAMNESE"> Content 2 </mat-tab>
-            <mat-tab label="4 - OBSERVAÇÕES RELEVANTES"> Content 2 </mat-tab>
+            <mat-tab label="3 - ANAMNESE"> 
+                <mat-card>
+                    <div class="container mt-2">                    
+                        <div class="row">
+                            <div class="col-5">
+                                <mat-form-field>
+                                    <mat-label>Localidade de nascimento</mat-label>
+                                    <input required matInput placeholder="Jaguaruana..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-5">
+                                <mat-form-field>
+                                    <mat-label>Maternidade</mat-label>
+                                    <input required matInput placeholder="Hospital..." />
+                                </mat-form-field>
+                            </div>
+                             <div class="col-2">
+                                <mat-form-field>
+                                    <mat-select required>
+                                    <mat-option>-- Selecione --</mat-option>
+                                    <mat-option value="1">Normal</mat-option>
+                                    <mat-option value="1">Cesariana</mat-option>
+                                    </mat-select>
+                                    <mat-label>Parto</mat-label>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-form-field>
+                                    <mat-label>Duração da gestação</mat-label>
+                                    <input required matInput placeholder="36 semanas..." />
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-9">
+                                <mat-form-field>
+                                    <mat-label>Em caso de prematuridade, o que ocasionou?</mat-label>
+                                    <input required matInput placeholder="Complicações..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Acompanhamento pré-natal</mat-checkbox>
+                            </div>
+                            <div class="col-9">
+                                <mat-form-field>
+                                    <mat-label>Quanto tempo?</mat-label>
+                                    <input required matInput placeholder="8 meses..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Fez exames durante a gravidez? Quais?</mat-label>
+                                    <input required matInput placeholder="Sim..." />
+                                </mat-form-field>
+                            </div> 
+                        </div>                     
+
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Doença durante a gravidez/medicamento?</mat-checkbox>
+                            </div>
+                            <div class="col-9">
+                                <mat-form-field>
+                                    <mat-label>Qual?</mat-label>
+                                    <input required matInput placeholder="COVID..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>Chorou logo?</mat-checkbox>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Ficou roxo?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Precisou de oxigênio?</mat-checkbox>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Incubadora?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Apresentou Icterícia?</mat-checkbox>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>Foi amamentado no seio?</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Quanto tempo?</mat-label>
+                                    <input required matInput placeholder="6 Meses..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Fez uso de mamadeira?</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Quanto tempo?</mat-label>
+                                    <input required matInput placeholder="6 Meses..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>Engatinhou?</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Quando?</mat-label>
+                                    <input required matInput placeholder="6 Meses..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Sentou?</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Quando?</mat-label>
+                                    <input required matInput placeholder="6 Meses..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>Andou?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-form-field>
+                                    <mat-label>Quando?</mat-label>
+                                    <input required matInput placeholder="1 Ano..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Precisou de fisioterapia?</mat-checkbox>
+                            </div>
+                            <div class="col-5">
+                                <mat-form-field>
+                                    <mat-label>Motivo</mat-label>
+                                    <input required matInput placeholder="Dificuldade..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Possui controle dos esfíncteres</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Quando adquiriu este controle?</mat-label>
+                                    <input required matInput placeholder="1 Ano..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Quando falou as primeiras palavras?</mat-label>
+                                    <input required matInput placeholder="8 Meses..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Qual tipo de comunicação?</mat-label>
+                                    <input required matInput placeholder="Verbal..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Distúrbios na comunicação?</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Qual?</mat-label>
+                                    <input required matInput placeholder="Dificuldade nas sílabas..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-checkbox>Aparentemente demonstra ser uma criança contente? (Autoestima)</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Faz amizade facilmente</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Chora facilmente</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Reclama muito (desmotivado)</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Resolve sozinho os problemas que lhe são apresentados</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Observação</mat-label>
+                                    <input matInput placeholder="Alguns casos..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>É agressivo</mat-checkbox>
+                            </div>
+                            <div class="col-5">
+                                <mat-form-field>
+                                    <mat-label>Observação</mat-label>
+                                    <input matInput placeholder="Alguns casos..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-5">
+                                <mat-checkbox>É cooperador (não se negando a fazer as coisas)</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>É suficientemente independente, não precisando do auxílio da professora</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Observação</mat-label>
+                                    <input matInput placeholder="Alguns casos..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Ajusta-se facilmente às novas situações</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Observação</mat-label>
+                                    <input matInput placeholder="Alguns casos..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Apresenta concentração necessária para as atividades</mat-checkbox>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>É inquieto</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Participa normalmente de atividades em grupo</mat-checkbox>
+                            </div>
+                            <div class="col-2">
+                                <mat-checkbox>Sabe esperar a sua vez</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Obedece a ordens dadas na primeira vez</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-form-field>
+                                    <mat-label>Observação</mat-label>
+                                    <input matInput placeholder="Algumas vezes..." />
+                                </mat-form-field>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Organizado (materiais; planeja e executa)</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <mat-checkbox>Conversa sobre si</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Apresenta algum tipo de tensão ou ansiedade</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Tem algum tipo de mania?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-form-field>
+                                    <mat-label>Qual?</mat-label>
+                                    <input matInput placeholder="Roer unha..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Amarra o cadarço sozinho</mat-checkbox>
+                            </div>
+                            <div class="col-5">
+                                <mat-checkbox>Necessita sair várias vezes para ir ao banheiro</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Reconhece suas dificuldades</mat-checkbox>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Faz uso do banheiro sozinho</mat-checkbox>
+                            </div>
+                            <div class="col-4">
+                                <mat-checkbox>Alimenta-se sozinho</mat-checkbox>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <mat-divider></mat-divider>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <mat-checkbox>Frequentou alguma escola?</mat-checkbox>
+                            </div>
+                            <div class="col-8">
+                                <mat-form-field>
+                                    <mat-label>Qual?</mat-label>
+                                    <input required matInput placeholder="CEI..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-3">
+                                <mat-checkbox>Faz amigos com facilidade?</mat-checkbox>
+                            </div>
+                            <div class="col-3">
+                                <mat-checkbox>Adapta-se facilmente ao meio?</mat-checkbox>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Quem são os companheiros da criança nas brincadeiras?</mat-label>
+                                    <input required matInput placeholder="CEI..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Escolha de grupo</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="1">Mesmo sexo</mat-option>
+                                        <mat-option value="2">Sexo oposto</mat-option>
+                                        <mat-option value="3">Criança da mesma idade</mat-option>
+                                        <mat-option value="4">Criança mais nova</mat-option>
+                                        <mat-option value="5">Criança mais velha</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Distrações preferidas</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="1">Televisão</mat-option>
+                                        <mat-option value="2">Música</mat-option>
+                                        <mat-option value="3">Leitura</mat-option>
+                                        <mat-option value="4">Coleção</mat-option>
+                                        <mat-option value="5">Computador</mat-option>
+                                        <mat-option value="6">Outros</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Quais distrações?</mat-label>
+                                    <input matInput placeholder="Desenhar..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Atitudes sociais predominantes</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="1">Obediente</mat-option>
+                                        <mat-option value="2">Independente</mat-option>
+                                        <mat-option value="3">Comunicativo</mat-option>
+                                        <mat-option value="4">Agressivo</mat-option>
+                                        <mat-option value="5">Cooperador</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Emocionais</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="1">Tranquilo</mat-option>
+                                        <mat-option value="2">Seguro</mat-option>
+                                        <mat-option value="3">Ansioso</mat-option>
+                                        <mat-option value="4">Alegre</mat-option>
+                                        <mat-option value="5">Emotivo</mat-option>
+                                        <mat-option value="6">Queixoso</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <mat-form-field>
+                                    <mat-label>Sono</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option value="1">Insônia</mat-option>
+                                        <mat-option value="2">Pesadelos</mat-option>
+                                        <mat-option value="3">Hipersonia (sonolência excessiva ou moleza)</mat-option>
+                                        <mat-option value="4">Dorme sozinho</mat-option>
+                                        <mat-option value="5">Dorme no quarto do Pais</mat-option>
+                                        <mat-option value="6">Divide o quarto com alguém</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Medidas disciplinares empregadas pelos pais</mat-label>
+                                    <input matInput placeholder="Sentar..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <mat-form-field>
+                                    <mat-label>Como seu (sua) filho (a) reage quando é contrariado (a), e qual a atitude dos pais nesta ocasião?</mat-label>
+                                    <input matInput placeholder="Aceita bem..." />
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card> 
+            </mat-tab>
+            <mat-tab label="4 - OBSERVAÇÕES RELEVANTES"> 
+                <mat-card>
+                    <div class="container mt-2">                    
+                        <div class="row">
+                            <div class="col-12"> 
+                                <mat-form-field>
+                                    <mat-label>Observações relevantes</mat-label>
+                                    <textarea matInput placeholder="Considerações sobre o discente..."></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+            </mat-tab>
             <mat-tab label="5 - FINALIZAR"> 
                 <button matButton="filled" (click)="generate()">Generate document</button>
                 <p>Click the button above to generate a document using Angular</p>
