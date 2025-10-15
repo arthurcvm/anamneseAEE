@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
 import PizZipUtils from 'pizzip/utils/index.js';
 import { saveAs } from 'file-saver';
 import { MatButton } from '@angular/material/button';
-import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
 import { FloatLabelType, MatFormFieldModule } from '@angular/material/form-field';
@@ -45,40 +45,70 @@ function loadFile(url: string, callback: any) {
   templateUrl: './docxgenerator.html',
   styleUrl: './docxgenerator.scss'
 })
-export class Docxgenerator {
-  readonly hideRequiredControl = new FormControl(false);
-  readonly options = inject(FormBuilder).group({
-    hideRequired: this.hideRequiredControl,
-  });
-  protected readonly hideRequired = toSignal(this.hideRequiredControl.valueChanges);
+export class Docxgenerator implements OnInit {
+
+  anamneseForm!: FormGroup;
+
+  escolas = ['CEI JOSÉ CARNEIRO DO NASCIMENTO'];
+  profsAee = ['MONIZIA ELÉN DA SILVA OLIVEIRA'];
+  periodos = ['2025', '2026']
+
+  constructor(
+    private fb : FormBuilder,
+  ){}
+
+  ngOnInit(): void {
+    this.montarFormulario();
+  }
+
+  montarFormulario(){
+    this.anamneseForm = this.fb.group({
+      escola: ['', Validators.required],
+      nmAluno: ['', Validators.required],
+      dtNascimento: ['', Validators.required],
+      nmProfessorSala: ['', Validators.required],
+      nmProfessorAee: ['', Validators.required],
+      periodo: ['', Validators.required],
+      endereco: ['', Validators.required],
+      bairro: ['', Validators.required],
+      telefone: ['', Validators.required],
+      nmPai: ['', Validators.required],
+      nmMae: ['', Validators.required],
+      temIrmaos: [false],
+      necessitamAtenEsp: [false],
+      pessoasQueMoram: ['', Validators.required],
+
+    })
+  }
 
 
-  generate() {
-    loadFile(
-      'https://docxtemplater.com/tag-example.docx',
-      function (error: Error | null, content: string) {
-        if (error) {
-          throw error;
-        }
-        const zip = new PizZip(content);
-        const doc = new Docxtemplater(zip, {
-          paragraphLoop: true,
-          linebreaks: true,
-        });
-        doc.render({
-          first_name: 'John',
-          last_name: 'Doe',
-          phone: '0652455478',
-          description: 'New Website',
-        });
-        const out = doc.getZip().generate({
-          type: 'blob',
-          mimeType:
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        });
-        // Output the document using Data-URI
-        saveAs(out, 'output.docx');
-      }
-    );
+  onSubmit() {
+    console.log(this.anamneseForm.value);
+    // loadFile(
+    //   'https://docxtemplater.com/tag-example.docx',
+    //   function (error: Error | null, content: string) {
+    //     if (error) {
+    //       throw error;
+    //     }
+    //     const zip = new PizZip(content);
+    //     const doc = new Docxtemplater(zip, {
+    //       paragraphLoop: true,
+    //       linebreaks: true,
+    //     });
+    //     doc.render({
+    //       first_name: 'John',
+    //       last_name: 'Doe',
+    //       phone: '0652455478',
+    //       description: 'New Website',
+    //     });
+    //     const out = doc.getZip().generate({
+    //       type: 'blob',
+    //       mimeType:
+    //         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    //     });
+    //     // Output the document using Data-URI
+    //     saveAs(out, 'output.docx');
+    //   }
+    // );
   }
 }

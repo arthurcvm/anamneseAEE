@@ -1,19 +1,21 @@
 <div class="container-fluid">
     <h1>Anamnese AEE</h1>
 
-    <form [formGroup]="options">
+    <form [formGroup]="anamneseForm" (ngSubmit)="onSubmit()">
         <mat-tab-group>
             <mat-tab label="1 - DADOS DO ALUNO">
                 <mat-card>
                     <div class="container mt-2">                    
                         <div class="row">
                             <div class="col-12">                        
-                                <mat-form-field [hideRequiredMarker]="hideRequired()">
-                                    <mat-select required>
-                                        <mat-option>-- Selecione --</mat-option>
-                                        <mat-option value="1">CEI JOSÉ CARNEIRO DO NASCIMENTO</mat-option>
-                                    </mat-select>
+                                <mat-form-field>
                                     <mat-label>Escola</mat-label>
+                                    <mat-select  formControlName="escola" required>
+                                        <mat-option>-- Selecione --</mat-option>
+                                        @for (escola of escolas; track escola) {
+                                            <mat-option [value]="escola">{{escola}}</mat-option>
+                                        }
+                                    </mat-select>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -21,14 +23,14 @@
                             <div class="col-9">
                                 <mat-form-field>
                                     <mat-label>Aluno(a)</mat-label>
-                                    <input required matInput placeholder="Maria Ana..." />
+                                    <input formControlName="nmAluno" required matInput placeholder="Maria Ana..." />
                                 </mat-form-field>
                             </div>
                             
                             <div class="col-3">
                                 <mat-form-field>
                                     <mat-label>Data de Nascimento</mat-label>
-                                    <input required matInput [matDatepicker]="picker">
+                                    <input formControlName="dtNascimento" required matInput [matDatepicker]="picker">
                                     <mat-hint>DD/MM/AAAA</mat-hint>
                                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                                     <mat-datepicker #picker></mat-datepicker>
@@ -40,28 +42,31 @@
                             <div class="col-5">
                                 <mat-form-field>
                                     <mat-label>Professor de Sala</mat-label>
-                                    <input required matInput placeholder="José..." />
+                                    <input formControlName="nmProfessorSala" required matInput placeholder="José..." />
                                 </mat-form-field>
                             </div>
 
                             <div class="col-5">
-                                <mat-form-field [hideRequiredMarker]="hideRequired()">
-                                    <mat-select required>
-                                    <mat-option>-- Selecione --</mat-option>
-                                    <mat-option value="1">MONIZIA ELÉN DA SILVA OLIVEIRA</mat-option>
-                                    </mat-select>
+                                <mat-form-field>
                                     <mat-label>Professor AEE</mat-label>
+                                    <mat-select formControlName="nmProfessorAee" required>
+                                        <mat-option>-- Selecione --</mat-option>
+                                        @for (profaee of profsAee; track profaee) {
+                                            <mat-option [value]="profaee">{{profaee}}</mat-option>
+                                        }
+                                    </mat-select>
                                 </mat-form-field>
                             </div>
 
                             <div class="col-2">
-                                <mat-form-field [hideRequiredMarker]="hideRequired()">
-                                    <mat-select required>
-                                    <mat-option>-- Selecione --</mat-option>
-                                    <mat-option value="1">2025</mat-option>
-                                    <mat-option value="2">2026</mat-option>
-                                    </mat-select>
+                                <mat-form-field>
                                     <mat-label>Período</mat-label>
+                                    <mat-select formControlName="periodo" required>
+                                        <mat-option>-- Selecione --</mat-option>
+                                        @for (periodo of periodos; track periodo) {
+                                            <mat-option [value]="periodo">{{periodo}}</mat-option>
+                                        }
+                                    </mat-select>
                                 </mat-form-field>
 
                             </div>
@@ -71,14 +76,14 @@
                             <div class="col-8">
                                 <mat-form-field>
                                     <mat-label>Endereço</mat-label>
-                                    <input required matInput placeholder="Rua..." />
+                                    <input formControlName="endereco" required matInput placeholder="Rua..." />
                                 </mat-form-field>
                             </div>
 
                             <div class="col-4">
                                 <mat-form-field>
                                     <mat-label>Bairro</mat-label>
-                                    <input required matInput placeholder="Tabuleiro..." />
+                                    <input formControlName="bairro" required matInput placeholder="Tabuleiro..." />
                                 </mat-form-field>
                             </div>   
                         </div>                     
@@ -87,53 +92,38 @@
                             <div class="col-2">
                                 <mat-form-field>
                                     <mat-label>Telefone</mat-label>
-                                    <input required matInput placeholder="(88)9..." />
+                                    <input formControlName="telefone" required matInput placeholder="(88)9..." />
                                 </mat-form-field>
                             </div>
 
                             <div class="col-5">
                                 <mat-form-field>
                                     <mat-label>Pai</mat-label>
-                                    <input required matInput placeholder="Francisco..." />
+                                    <input formControlName="nmPai" required matInput placeholder="Francisco..." />
                                 </mat-form-field>
                             </div>
 
                             <div class="col-5">
                                 <mat-form-field>
                                     <mat-label>Mãe</mat-label>
-                                    <input required matInput placeholder="Luiza..." />
+                                    <input formControlName="nmMae" required matInput placeholder="Luiza..." />
                                 </mat-form-field>
                             </div>
                         </div>
                             
                         <div class="row">
                             <div class="col-4">
-                                <mat-form-field [hideRequiredMarker]="hideRequired()">
-                                    <mat-select required>
-                                    <mat-option>-- Selecione --</mat-option>
-                                    <mat-option value="1">Sim</mat-option>
-                                    <mat-option value="2">Não</mat-option>
-                                    </mat-select>
-                                    <mat-label>Tem irmãos?</mat-label>
-                                </mat-form-field>
+                                <mat-checkbox formControlName="temIrmaos">Tem irmãos?</mat-checkbox>
                             </div>
-                            
                             <div class="col-4">
-                                <mat-form-field [hideRequiredMarker]="hideRequired()">
-                                    <mat-select required>
-                                    <mat-option>-- Selecione --</mat-option>
-                                    <mat-option value="1">Sim</mat-option>
-                                    <mat-option value="2">Não</mat-option>
-                                    </mat-select>
-                                    <mat-label>Necessitam de atendimento especializado?</mat-label>
-                                </mat-form-field>
+                                <mat-checkbox formControlName="necessitamAtenEsp">Necessitam de atendimento especializado?</mat-checkbox>
                             </div>
                         </div>
                         <div class="row">    
                             <div class="col-12">
                                 <mat-form-field>
                                     <mat-label>Quais pessoas que moram na casa?</mat-label>
-                                    <input required matInput placeholder="Mãe, irmãos..." />
+                                    <input formControlName="pessoasQueMoram" required matInput placeholder="Mãe, irmãos..." />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -736,7 +726,7 @@
                 </mat-card>
             </mat-tab>
             <mat-tab label="5 - FINALIZAR"> 
-                <button matButton="filled" (click)="generate()">Generate document</button>
+                <button mat-raised-button color="primary">Generate document</button>
                 <p>Click the button above to generate a document using Angular</p>
                 <p>You can edit the data in your code in this example. In your app, the data would come from your database for example.</p> 
             </mat-tab>
