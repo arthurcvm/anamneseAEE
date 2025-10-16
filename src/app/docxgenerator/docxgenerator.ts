@@ -51,7 +51,8 @@ export class Docxgenerator implements OnInit {
 
   escolas = ['CEI JOSÉ CARNEIRO DO NASCIMENTO'];
   profsAee = ['MONIZIA ELÉN DA SILVA OLIVEIRA'];
-  periodos = ['2025', '2026']
+  periodos = ['2025', '2026'];
+  necessidades = ['Auditiva', 'Comunicação', 'Visual', 'Locomoção', 'Cognitivo'];
 
   constructor(
     private fb : FormBuilder,
@@ -77,6 +78,24 @@ export class Docxgenerator implements OnInit {
       temIrmaos: [false],
       necessitamAtenEsp: [false],
       pessoasQueMoram: ['', Validators.required],
+      temDiagClinic: [false, Validators.required],
+      temRelatoPedag: [false, Validators.required],
+      diagnostico: ['', Validators.required],
+      atendClinExt: ['', Validators.required],
+      temConvul: [false, Validators.required],
+      fazUsoMed: [false, Validators.required],
+      medicacao: ['', Validators.required],
+      temConvMed: [false, Validators.required],
+      convenioMed: ['', Validators.required],
+      temCartTransp: [false, Validators.required],
+      vaiRegMedico: [false, Validators.required],
+      vacinaEmDias: [false, Validators.required],
+      cartaoSus: ['', Validators.required],
+      teveDoenContagi: [false, Validators.required],
+      doencaContagi: ['', Validators.required],
+      temNecessidades: ['', Validators.required],
+      servicosQueFreque: ['', Validators.required],
+      profissReferen: ['', Validators.required],
 
     })
   }

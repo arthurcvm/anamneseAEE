@@ -135,15 +135,15 @@
                     <div class="container mt-2">                    
                         <div class="row">
                             <div class="col-3">
-                                <mat-checkbox>Diagnóstico clínico</mat-checkbox>
+                                <mat-checkbox formControlName="temDiagClinic">Diagnóstico clínico</mat-checkbox>
                             </div>
                             <div class="col-3">
-                                <mat-checkbox>Relatório pedagógico</mat-checkbox>
+                                <mat-checkbox formControlName="temRelatoPedag">Relatório pedagógico</mat-checkbox>
                             </div>
                             <div class="col-6">
                                 <mat-form-field>
                                     <mat-label>Diagnóstico</mat-label>
-                                    <input matInput placeholder="CID..." />
+                                    <input formControlName="diagnostico" matInput placeholder="CID..." />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -151,73 +151,71 @@
                             <div class="col-12">                        
                                 <mat-form-field>
                                     <mat-label>Atendimentos clínicos externos</mat-label>
-                                    <input matInput placeholder="Fono... TO..." />
+                                    <input formControlName="atendClinExt" matInput placeholder="Fono... TO..." />
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <mat-checkbox>Tem convulsões?</mat-checkbox>
+                                <mat-checkbox formControlName="temConvul">Tem convulsões?</mat-checkbox>
                             </div>
                             <div class="col-3">
-                                <mat-checkbox>Faz uso de medicação?</mat-checkbox>
+                                <mat-checkbox formControlName="fazUsoMed">Faz uso de medicação?</mat-checkbox>
                             </div>
                             <div class="col-6">
                                 <mat-form-field>
                                     <mat-label>Qual medicação?</mat-label>
-                                    <input matInput placeholder="Rispe..." />
+                                    <input formControlName="medicacao" matInput placeholder="Rispe..." />
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-3">
-                                <mat-checkbox>Tem convênio médico?</mat-checkbox>
+                                <mat-checkbox formControlName="temConvMed">Tem convênio médico?</mat-checkbox>
                             </div>
                             <div class="col-9">
                                 <mat-form-field>
                                     <mat-label>Qual convênio?</mat-label>
-                                    <input matInput placeholder="Unimed..." />
+                                    <input formControlName="convenioMed" matInput placeholder="Unimed..." />
                                 </mat-form-field>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-3">
-                                <mat-checkbox>Tem carteirinha de transporte?</mat-checkbox>
+                                <mat-checkbox formControlName="temCartTransp">Tem carteirinha de transporte?</mat-checkbox>
                             </div>
                             <div class="col-3">
-                                <mat-checkbox>Vai regularmente ao médico?</mat-checkbox>
+                                <mat-checkbox formControlName="vaiRegMedico">Vai regularmente ao médico?</mat-checkbox>
                             </div>
                             <div class="col-2">
-                                <mat-checkbox>Vacinação em dias?</mat-checkbox>
+                                <mat-checkbox formControlName="vacinaEmDias">Vacinação em dias?</mat-checkbox>
                             </div>
                             <div class="col-4">
                                 <mat-form-field>
                                     <mat-label>Cartão do SUS</mat-label>
-                                    <input matInput placeholder="7..." />
+                                    <input formControlName="cartaoSus" matInput placeholder="7..." />
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <mat-checkbox>Teve alguma doença contagiosa?</mat-checkbox>
+                                <mat-checkbox formControlName="teveDoenContagi">Teve alguma doença contagiosa?</mat-checkbox>
                             </div>
                             <div class="col-8">
                                 <mat-form-field>
                                     <mat-label>Qual doença?</mat-label>
-                                    <input matInput placeholder="COVID..." />
+                                    <input formControlName="doencaContagi" matInput placeholder="COVID..." />
                                 </mat-form-field>
                             </div>
                         </div>
                         <div class="row">
                             <mat-form-field>
                                 <mat-label>Apresenta alguma necessidade?</mat-label>
-                                <mat-select multiple>
-                                    <mat-option value="1">Auditiva</mat-option>
-                                    <mat-option value="2">Comunicação</mat-option>
-                                    <mat-option value="3">Visual</mat-option>
-                                    <mat-option value="4">Locomoção</mat-option>
-                                    <mat-option value="5">Cognitivo</mat-option>
+                                <mat-select formControlName="temNecessidades" multiple>
+                                    @for (necessidade of necessidades; track necessidade) {
+                                        <mat-option [value]="necessidade">{{necessidade}}</mat-option>
+                                    }
                                 </mat-select>
                             </mat-form-field>
 
@@ -226,7 +224,7 @@
                             <div class="col-12">
                                 <mat-form-field>
                                     <mat-label>Serviços que frequenta ou frequentou</mat-label>
-                                    <input matInput placeholder="Fisio..." />
+                                    <input formControlName="servicosQueFreque" matInput placeholder="Fisio..." />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -234,7 +232,7 @@
                             <div class="col-12">
                                 <mat-form-field>
                                     <mat-label>Profissionais de referência</mat-label>
-                                    <input matInput placeholder="Cícero Fono..." />
+                                    <input formControlName="profissReferen" matInput placeholder="Cícero Fono..." />
                                 </mat-form-field>
                             </div>
                         </div>
