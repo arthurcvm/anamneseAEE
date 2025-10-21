@@ -201,6 +201,7 @@ export class Docxgenerator implements OnInit {
       sono: ['', Validators.required],
       medidDiscipl: ['', Validators.required],
       reacaoContrariado: ['', Validators.required],
+      observacoesRelevantes: ['']
     })
   }
 
