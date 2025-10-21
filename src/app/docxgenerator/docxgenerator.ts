@@ -53,6 +53,12 @@ export class Docxgenerator implements OnInit {
   profsAee = ['MONIZIA ELÉN DA SILVA OLIVEIRA'];
   periodos = ['2025', '2026'];
   necessidades = ['Auditiva', 'Comunicação', 'Visual', 'Locomoção', 'Cognitivo'];
+  tiposParto = ['Normal', 'Cesariana'];
+  gruposBrincadeira = ['Mesmo sexo', 'Sexo oposto', 'Criança da mesma idade', 'Criança mais nova', 'Criança mais velha'];
+  distracoes = ['Televisão', 'Música', 'Leitura', 'Coleção', 'Computador', 'Outros'];
+  atitudesSociais = ['Obediente', 'Independente', 'Comunicativo', 'Agressivo', 'Cooperador'];
+  atitudesEmocionais = ['Tranquilo', 'Seguro', 'Ansioso', 'Alegre', 'Emotivo', 'Queixoso'];
+  tiposSono = ['Insônia', 'Pesadelos', 'Hipersonia (sonolência excessiva ou moleza)', 'Dorme sozinho', 'Dorme no quarto do Pais', 'Divide o quarto com alguém']
 
   constructor(
     private fb : FormBuilder,
@@ -97,6 +103,104 @@ export class Docxgenerator implements OnInit {
       servicosQueFreque: ['', Validators.required],
       profissReferen: ['', Validators.required],
 
+
+      localNascimento: ['', Validators.required],
+      maternidade: ['', Validators.required],
+      tipoParto: ['', Validators.required],
+      duracaoGest: ['', Validators.required],
+      motvPremat: ['', Validators.required],
+      fezPrenatal: [false, Validators.required],
+      tempoPrenatal: ['', Validators.required],
+      examesGravide: ['', Validators.required],
+      teveDoencaMedicamGesta: [false, Validators.required],
+      doencaMedicamGesta: ['', Validators.required],
+
+      chorou: [false, Validators.required],
+      ficouRoxo: [false, Validators.required],
+      preciOxig: [false, Validators.required],
+      preciIncu: [false, Validators.required],
+      apresIctericia: [false, Validators.required],
+
+      foiAmamentado: [false, Validators.required],
+      tempoAmamentado: ['', Validators.required],
+      usouMamadeira: [false, Validators.required],
+      tempoMamadeira: ['', Validators.required],
+
+      engatinhou: [false, Validators.required],
+      quandoEngatinhou: ['', Validators.required],
+      sentou: [false, Validators.required],
+      quandoSentou: ['', Validators.required],
+
+      andou: [false, Validators.required],
+      quandoAndou: ['', Validators.required],
+      precisouFisio: [false, Validators.required],
+      motivoPrecisouFisio: ['', Validators.required],
+
+      possuiControlEsfinct: [false, Validators.required],
+      quandoAdquiriuControlEsfinct: ['', Validators.required],
+
+      quandoFalouPrimei: ['', Validators.required],
+      qualTpComunic: ['', Validators.required],
+
+
+      temDisturbComunic: [false, Validators.required],
+      qualDisturbComunic: ['', Validators.required],
+
+      eContente: [false, Validators.required],
+      fazAmizFacil: [false, Validators.required],
+      choraFacil: [false, Validators.required],
+      reclamaMuito: [false, Validators.required],
+
+      resolveSozinhoProb: [false, Validators.required],
+      obsResolveSozinhoProb: ['', Validators.required],
+
+      eAgressivo: [false, Validators.required],
+      obsEAgressivo: ['', Validators.required],
+      eCooperador: [false, Validators.required],
+
+      eIndependente: [false, Validators.required],
+      obsEIndependente: ['', Validators.required],
+
+      ajustaFacilNovSit: [false, Validators.required],
+      obsAjustaFacilNovSit: ['', Validators.required],
+
+
+      temConcentNecess: [false, Validators.required],
+      eInquieto: [false, Validators.required],
+      partcipNormalGrupo: [false, Validators.required],
+      sabeEsperarVez: [false, Validators.required],
+      obedeceOrdensPrimeira: [false, Validators.required],
+      obsObedeceOrdensPrimeira: ['', Validators.required],
+
+
+      eOrganizado: [false, Validators.required],
+      conversaSobreSi: [false, Validators.required],
+      apresentaTensaoAnsiedade: [false, Validators.required],
+      temMania: [false, Validators.required],
+      qualMania: ['', Validators.required],
+
+      amarraCadarcoSo: [false, Validators.required],
+      necessVariasBanheiro: [false, Validators.required],
+      reconheDificulda: [false, Validators.required],
+      usaBanheiroSo: [false, Validators.required],
+      alimentaSo: [false, Validators.required],
+
+      freqEscola: [false, Validators.required],
+      qualEscola: ['', Validators.required],
+
+      fazAmigosFac: [false, Validators.required],
+      adaptaFacMeio: [false, Validators.required],
+      companheBrinca: ['', Validators.required],
+
+      grupsBrinca: ['', Validators.required],
+      distPref: ['', Validators.required],
+      outrDistPref: [''],
+      
+      atitudSociPred: ['', Validators.required],
+      atitudEmociPred: ['', Validators.required],
+      sono: ['', Validators.required],
+      medidDiscipl: ['', Validators.required],
+      reacaoContrariado: ['', Validators.required],
     })
   }
 
