@@ -19,6 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDivider } from '@angular/material/divider';
+import fs from 'fs';
 
 function loadFile(url: string, callback: any) {
   PizZipUtils.getBinaryContent(url, callback);
@@ -207,32 +208,34 @@ export class Docxgenerator implements OnInit {
 
 
   onSubmit() {
-    console.log(this.anamneseForm.value);
-    // loadFile(
-    //   'https://docxtemplater.com/tag-example.docx',
-    //   function (error: Error | null, content: string) {
-    //     if (error) {
-    //       throw error;
-    //     }
-    //     const zip = new PizZip(content);
-    //     const doc = new Docxtemplater(zip, {
-    //       paragraphLoop: true,
-    //       linebreaks: true,
-    //     });
-    //     doc.render({
-    //       first_name: 'John',
-    //       last_name: 'Doe',
-    //       phone: '0652455478',
-    //       description: 'New Website',
-    //     });
-    //     const out = doc.getZip().generate({
-    //       type: 'blob',
-    //       mimeType:
-    //         'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    //     });
-    //     // Output the document using Data-URI
-    //     saveAs(out, 'output.docx');
-    //   }
-    // );
+    // console.log(this.anamneseForm.value);
+
+
+    loadFile(
+      'moldeanamnese.docx',
+      function (error: Error | null, content: string) {
+        if (error) {
+          throw error;
+        }
+        const zip = new PizZip(content);
+        const doc = new Docxtemplater(zip, {
+          paragraphLoop: true,
+          linebreaks: true,
+        });
+        doc.render({
+          first_name: 'John',
+          last_name: 'Doe',
+          phone: '0652455478',
+          description: 'New Website',
+        });
+        const out = doc.getZip().generate({
+          type: 'blob',
+          mimeType:
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        });
+        // Output the document using Data-URI
+        saveAs(out, 'output.docx');
+      }
+    );
   }
 }
