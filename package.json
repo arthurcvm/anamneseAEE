@@ -30,6 +30,7 @@
     "@angular/material": "^20.2.7",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "angular-expressions": "^1.5.1",
     "bootstrap": "^5.3.8",
     "docxtemplater": "^3.66.5",
     "file-saver": "^2.0.5",

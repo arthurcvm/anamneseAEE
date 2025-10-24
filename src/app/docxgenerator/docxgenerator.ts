@@ -2,24 +2,22 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import Docxtemplater from 'docxtemplater';
 import PizZip from 'pizzip';
 import PizZipUtils from 'pizzip/utils/index.js';
+import expressionParser from 'docxtemplater/expressions.js';
 import { saveAs } from 'file-saver';
 import { MatButton } from '@angular/material/button';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatRadioModule } from '@angular/material/radio';
-import { FloatLabelType, MatFormFieldModule } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { map } from 'rxjs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDivider } from '@angular/material/divider';
-import fs from 'fs';
 
 function loadFile(url: string, callback: any) {
   PizZipUtils.getBinaryContent(url, callback);
@@ -208,7 +206,10 @@ export class Docxgenerator implements OnInit {
 
 
   onSubmit() {
-    // console.log(this.anamneseForm.value);
+    console.log(this.anamneseForm.value);
+    
+    const parser = expressionParser.configure({});
+    const formValues = this.anamneseForm.value;
 
 
     loadFile(
@@ -219,15 +220,13 @@ export class Docxgenerator implements OnInit {
         }
         const zip = new PizZip(content);
         const doc = new Docxtemplater(zip, {
+          parser,
           paragraphLoop: true,
           linebreaks: true,
         });
-        doc.render({
-          first_name: 'John',
-          last_name: 'Doe',
-          phone: '0652455478',
-          description: 'New Website',
-        });
+        doc.render(
+          formValues
+        );
         const out = doc.getZip().generate({
           type: 'blob',
           mimeType:
