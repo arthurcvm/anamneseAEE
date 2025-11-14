@@ -70,6 +70,8 @@ export class Docxgenerator implements OnInit {
   montarFormulario(){
     this.anamneseForm = this.fb.group({
       escola: ['', Validators.required],
+      ra: ['', Validators.required],
+      anoNivel: ['', Validators.required],
       nmAluno: ['', Validators.required],
       dtNascimento: ['', Validators.required],
       nmProfessorSala: ['', Validators.required],
@@ -224,16 +226,21 @@ export class Docxgenerator implements OnInit {
           paragraphLoop: true,
           linebreaks: true,
         });
-        doc.render(
-          formValues
-        );
+
+        const formatedDate = formValues['dtNascimento'].toLocaleDateString('pt-BR');
+        
+        doc.render({
+          ...formValues,
+          dtNascimento: formatedDate
+        });
         const out = doc.getZip().generate({
           type: 'blob',
           mimeType:
             'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         });
         // Output the document using Data-URI
-        saveAs(out, 'output.docx');
+        const titulo: String = formValues['nmAluno'].replace(/\s/g, "").toLowerCase();
+        saveAs(out, 'anamnese_'+titulo+'.docx');
       }
     );
   }
